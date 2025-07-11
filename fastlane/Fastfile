@@ -1,0 +1,11 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build the framework"
+  lane :build do
+    sh "swift build"
+  end
+  lane :tests do
+    sh "swift test"
+  end
+end
