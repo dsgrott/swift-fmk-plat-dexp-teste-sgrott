@@ -1,24 +1,21 @@
-// swift-tools-version:5.10
+// swift-tools-version:5.7
 import PackageDescription
 
 let package = Package(
-    name: "swift-fmk-plat-dexp-teste-sgrott", 
-    platforms: [.iOS(.v13)],
+    name: "FrameworkExample",
+    platforms: [.iOS(.v14)],
     products: [
-        .library(name: "swift-fmk-plat-dexp-teste-sgrott", targets: ["HelloFramework"]),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/Quick/Nimble.git", from: "10.0.0")
+        .library(name: "FrameworkExample", targets: ["FrameworkExample"]),
     ],
     targets: [
         .target(
-            name: "HelloFramework",
-            path: "Sources"
+            name: "FrameworkExample",
+            path: "Sources/FrameworkExample"
         ),
         .testTarget(
-            name: "HelloFrameworkTests",
-            dependencies: ["HelloFramework"],
-            path: "Tests"
-        )
+            name: "FrameworkExampleTests",
+            dependencies: ["FrameworkExample"],
+            path: "Tests/FrameworkExampleTests"
+        ),
     ]
 )

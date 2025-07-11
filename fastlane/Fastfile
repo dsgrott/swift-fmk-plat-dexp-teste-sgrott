@@ -1,11 +1,18 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Build the framework"
-  lane :build do
-    sh "swift build"
-  end
-  lane :tests do
-    sh "swift test"
-  end
+  desc "Build do framework para simulação"
+
+    lane :build do
+      Dir.chdir("..") do  # volta para a raiz do projeto
+        sh "xcodebuild -scheme FrameworkExample -destination 'generic/platform=iOS' build"
+      end
+    end
+
+    lane :test do
+      Dir.chdir("..") do  # volta para a raiz do projeto
+        sh "xcodebuild -scheme FrameworkExample -destination 'platform=iOS Simulator,name=iPhone 16 Pro' test"
+      end
+    end
+
 end
